@@ -1,0 +1,30 @@
+<!-- src/app/student-list/student-list.component.html -->
+<h1>Student Management</h1>
+<button class="btn btn-primary" (click)="openModal()">Create Student</button>
+<table class="table mt-3">
+  <thead>
+    <tr>
+      <th><input type="checkbox" (change)="toggleAllSelection($event)"></th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Age</th>
+      <th>Date of Birth</th>
+      <th>Gender</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let student of students">
+      <td><input type="checkbox" [checked]="selectedStudents.includes(student)" (change)="toggleSelection(student)"></td>
+      <td>{{ student.name }}</td>
+      <td>{{ student.email }}</td>
+      <td>{{ student.age }}</td>
+      <td>{{ student.dob | date }}</td>
+      <td>{{ student.gender }}</td>
+      <td>
+        <button class="btn btn-secondary" (click)="openModal(student)">Edit</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<button class="btn btn-danger" *ngIf="selectedStudents.length > 0" (click)="deleteSelectedStudents()">Delete Selected</button>

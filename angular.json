@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "student-management-app"
+    }
+  },
+  "defaultProject": "student-management-app",
+  "cli": {
+    "analytics": false
+  }
 }

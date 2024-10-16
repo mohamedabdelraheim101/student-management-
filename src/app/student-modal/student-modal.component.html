@@ -1,0 +1,36 @@
+<!-- src/app/student-modal/student-modal.component.html -->
+<div class="modal-header">
+    <h5 class="modal-title">{{ student ? 'Edit' : 'Create' }} Student</h5>
+    <button type="button" class="close" aria-label="Close" (click)="bsModalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="studentForm">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" formControlName="name" id="name">
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" formControlName="email" id="email">
+      </div>
+      <div class="form-group">
+        <label for="age">Age</label>
+        <input type="number" class="form-control" formControlName="age" id="age">
+      </div>
+      <div class="form-group">
+        <label for="dob">Date of Birth</label>
+        <!-- <input type="text" class="form-control" formControlName="dob" id="dob" owlDateTime #dobPicker="owlDateTime" [owlDateTimeTrigger]="dobPicker"> -->
+      </div>
+      <div class="form-group">
+        <label for="gender">Gender</label>
+        <!-- <ng-select [items]="genders" bindLabel="gender" formControlName="gender"></ng-select> -->
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="bsModalRef.hide()">Close</button>
+    <button type="button" class="btn btn-primary" (click)="save()">Save</button>
+  </div>
+  
